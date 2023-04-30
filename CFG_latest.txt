@@ -1,0 +1,30 @@
+program -> function
+function -> def main ( params ) block
+params -> , params | param params | EPSILON
+param -> id
+block -> { stmtlist }
+stmtlist    -> stmt stmtlist | EPSILON
+stmt -> assignstmt | getStmt | putStmt | whilestmt | dowhilestmt | ifstmt | unaryexpr
+assignstmt -> id eval
+eval -> assignop expr delim | unaryop delim
+getStmt -> get id delim
+putStmt -> put expr delim
+dowhilestmt -> do block while ( expr ) delim
+whilestmt -> while ( expr ) block
+ifstmt -> if ( expr ) block ifstmt2
+ifstmt2 -> else block | EPSILON
+expr -> addexpr expr2
+expr2 -> relop addexpr | EPSILON
+addexpr -> term addexpr2
+addexpr2 -> addop term addexpr2 | EPSILON
+term -> factor term2
+term2 -> mulop factor term2 | EPSILON
+factor -> id | integer_constant | char_constant | string_constant | float_constant | ( expr )
+relexpr -> addexpr relop addexpr
+unaryexpr -> unaryop id delim
+addop -> + | -
+mulop -> * | / | %
+assignop -> = | += | -= | *= | /=
+relop -> .lt | .gt | .le | .ge | .eq | .ne
+unaryop -> ++ | --
+delim -> ;

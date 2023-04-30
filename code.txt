@@ -1,0 +1,25 @@
+def main( x , y ) {
+    a = 0 ;
+    c = 'a' ;
+    b = 6.5 ;
+    do
+    {
+        if (a .ne 5)
+        {
+            a = b + (6 % c - a) ;
+            --b;
+        }
+        else
+        {
+            d = "compiler_design" ;
+            a++ ;
+        }
+
+        while( b .eq 6)
+        {
+            a *= b / 7 ;
+        }
+    } while( a .le 5 ) ;
+    get a ;
+    put "hello world" ;
+}
